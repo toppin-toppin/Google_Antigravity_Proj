@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレミアム ポモドーロタイマー</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="container" id="app-container">
+        <div class="header">
+            <h1>Pomodoro</h1>
+            <p id="mode-text" class="mode-text">Work Session</p>
+        </div>
+        
+        <div class="timer-display">
+            <div class="progress-ring-container">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle class="progress-ring__circle--bg" stroke-width="8" fill="transparent" r="140" cx="150" cy="150" />
+                    <circle id="progress-ring" class="progress-ring__circle" stroke-width="8" fill="transparent" r="140" cx="150" cy="150" />
+                </svg>
+                <div class="time" id="time-display">25:00</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="start-btn" class="btn primary-btn">Start</button>
+            <button id="pause-btn" class="btn secondary-btn" disabled>Pause</button>
+            <button id="reset-btn" class="btn secondary-btn">Reset</button>
+            <button id="switch-mode-btn" class="btn icon-btn" title="Switch Mode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14c-1.33 0-2-.67-2-2 0-1.8 2-2 4-2M4 14v1.5c0 1.38 1.12 2.5 2.5 2.5A2.5 2.5 0 0 0 9 15.5V14M4 14h5M20 10c1.33 0 2 .67 2 2 0 1.8-2 2-4 2M20 10V8.5C20 7.12 18.88 6 17.5 6A2.5 2.5 0 0 0 15 8.5V10M20 10h-5"/>
+                    <path d="M9 10a3 3 0 0 1 6 0v4a3 3 0 0 1-6 0v-4z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="stats">
+            <p>Completed Pomodoros: <span id="session-count">0</span></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="timer-container">
+        <div class="progress-ring-container">
+            <svg class="progress-ring" width="300" height="300">
+                <circle class="progress-ring__background" stroke-width="8" fill="transparent" r="140" cx="150" cy="150"/>
+                <circle class="progress-ring__circle" stroke-width="8" fill="transparent" r="140" cx="150" cy="150"/>
+            </svg>
+            <div class="time-display" id="time-display">00:00</div>
+        </div>
+        
+        <div class="input-container" id="input-container">
+            <div class="input-group">
+                <input type="number" id="minutes-input" min="0" max="150" value="0" placeholder="00">
+                <label for="minutes-input">分</label>
+            </div>
+            <span class="separator">:</span>
+            <div class="input-group">
+                <input type="number" id="seconds-input" min="0" max="59" value="0" placeholder="00">
+                <label for="seconds-input">秒</label>
+            </div>
+        </div>
+        
+        <div class="error-message" id="error-message">最大150分（2.5時間）まで設定可能です</div>
+
+        <div class="controls">
+            <button id="start-btn" class="btn btn-primary">Start</button>
+            <button id="pause-btn" class="btn btn-secondary" disabled>Pause</button>
+            <button id="reset-btn" class="btn btn-danger" disabled>Reset</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
