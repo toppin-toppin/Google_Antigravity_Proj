@@ -115,7 +115,7 @@ def main():
     if uploaded_file is not None:
         try:
             image = Image.open(uploaded_file)
-            st.image(image, caption="アップロードされた画像", width="stretch")
+            st.image(image, caption="アップロードされた画像", use_container_width=True)
             
             # 評価ボタン
             if st.button("この画像を評価してもらう", type="primary"):
@@ -175,7 +175,7 @@ def main():
             with st.expander(f"履歴 {i+1}件目", expanded=(i==0)):
                 cols = st.columns([1, 2])
                 with cols[0]:
-                    st.image(item["image"], width="stretch")
+                    st.image(item["image"], use_container_width=True)
                 with cols[1]:
                     if "scores" in item and any(score > 0 for score in item["scores"].values()):
                         fig = create_radar_chart(item["scores"])
