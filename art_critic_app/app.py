@@ -115,7 +115,7 @@ def main():
     if uploaded_file is not None:
         try:
             image = Image.open(uploaded_file)
-            st.image(image, caption="アップロードされた画像", use_container_width=True)
+            st.image(image, caption="アップロードされた画像", width="stretch")
             
             # 評価ボタン
             if st.button("この画像を評価してもらう", type="primary"):
@@ -134,7 +134,7 @@ def main():
                                 st.write("### 📊 評価パラメータ")
                                 st.write("グラフの右上にカーソルを合わせると表示される📷(または💾)アイコンから画像としてダウンロード・コピーができます。")
                                 fig = create_radar_chart(scores)
-                                st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': True, 'toImageButtonOptions': {'format': 'png', 'filename': 'radar_chart'}})
+                                st.plotly_chart(fig, width="stretch", config={'displayModeBar': True, 'toImageButtonOptions': {'format': 'png', 'filename': 'radar_chart'}})
                                 
                         st.markdown(result)
                         
@@ -175,11 +175,11 @@ def main():
             with st.expander(f"履歴 {i+1}件目", expanded=(i==0)):
                 cols = st.columns([1, 2])
                 with cols[0]:
-                    st.image(item["image"], use_container_width=True)
+                    st.image(item["image"], width="stretch")
                 with cols[1]:
                     if "scores" in item and any(score > 0 for score in item["scores"].values()):
                         fig = create_radar_chart(item["scores"])
-                        st.plotly_chart(fig, use_container_width=True, key=f"history_chart_{i}", config={'displayModeBar': True, 'toImageButtonOptions': {'format': 'png', 'filename': 'radar_chart'}})
+                        st.plotly_chart(fig, width="stretch", key=f"history_chart_{i}", config={'displayModeBar': True, 'toImageButtonOptions': {'format': 'png', 'filename': 'radar_chart'}})
                         
                     raw_text = item.get("raw_result", item["result"]) # 後方互換性のため
                     st.markdown(raw_text[:200] + "..." if len(raw_text) > 200 else raw_text)
